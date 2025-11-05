@@ -20,6 +20,3 @@ def toggle(index):
     if 0 <= index < len(todos):
         todos[index]['done'] = not todos[index]['done']
     return redirect(url_for('index'))
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000)
