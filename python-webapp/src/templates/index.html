@@ -17,9 +17,9 @@
     <ul>
         {% for todo in todos %}
             <li>
-                <span class="{{ 'done' if todo.done else '' }}">{{ todo.text }}</span>
+                <span class="{{ "done" if todo.done else "" }}">{{ todo.text }}</span>
                 <form action="/toggle/{{ loop.index0 }}" method="post" style="display: inline;">
-                    <input type="checkbox" onchange="this.form.submit()" {{ 'checked' if todo.done else '' }}>
+                    <input type="checkbox" onchange="this.form.submit()" {{ "checked" if todo.done else "" }}>
                 </form>
             </li>
         {% endfor %}

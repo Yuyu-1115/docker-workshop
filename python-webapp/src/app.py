@@ -4,19 +4,19 @@ app = Flask(__name__)
 
 todos = []
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html', todos=todos)
+    return render_template("index.html", todos=todos)
 
-@app.route('/add', methods=['POST'])
+@app.route("/add", methods=["POST"])
 def add():
-    todo = request.form.get('todo')
+    todo = request.form.get("todo")
     if todo:
-        todos.append({'text': todo, 'done': False})
-    return redirect(url_for('index'))
+        todos.append({"text": todo, "done": False})
+    return redirect(url_for("index"))
 
-@app.route('/toggle/<int:index>', methods=['GET', 'POST'])
+@app.route("/toggle/<int:index>", methods=["POST"])
 def toggle(index):
     if 0 <= index < len(todos):
-        todos[index]['done'] = not todos[index]['done']
-    return redirect(url_for('index'))
+        todos[index]["done"] = not todos[index]["done"]
+    return redirect(url_for("index"))
