@@ -15,10 +15,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # copy the source code into the directory
 COPY src/ .
 
-# expose the port 8080 at runtime
-EXPOSE 8080
+# expose the port 5000 at runtime (in container's perspective)
+# it's also the default port for flask
+EXPOSE 5000
 
 # the default behaviour (the command that will run) when the container starts
 # there can be only one CMD instruction per Dockerfile
 # the last one takes effect when multiple are present
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["flask", "run", "--host=0.0.0.0"]
